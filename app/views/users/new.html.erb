@@ -1,0 +1,58 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">新規登録</h1>
+
+        <%= form_for @user do |f| %>
+          <!-- 名前の入力フォーム -->
+          <div class="form-group">
+            <%= f.label :name, class: "text-white" %>
+            <%= f.text_field :name, class: "form-control"%>
+            <!-- エラーメッセージ -->
+            <% if @user.errors.any? %>
+              <% @user.errors.full_messages_for(:name).each do |message| %>
+                <p class="text-white"><%= message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- メールアドレスの入力フォーム -->
+          <div class="form-group">
+            <%= f.label :email, class: "text-white"%>
+            <%= f.text_field :email, class: "form-control" %>
+            <!-- エラーメッセージ -->
+            <% if @user.errors.any? %>
+              <% @user.errors.full_messages_for(:email).each do |message| %>
+                <p class="text-white"><%= message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- パスワードの入力フォーム -->
+          <div class="form-group">
+            <%= f.label :password, class: "text-white"%>
+            <%= f.text_field :password, class: "form-control" %>
+            <!-- エラーメッセージ -->
+            <% if @user.errors.any? %>
+              <% @user.errors.full_messages_for(:password).each do |message| %>
+                <p class="text-white"><%= message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- パスワードの確認フォーム -->
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: "text-white"%>
+            <%= f.text_field :password_confirmation, class: "form-control" %>
+            <!-- エラーメッセージ -->
+            <% if @user.errors.any? %>
+              <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+                <p class="text-white"><%= message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <%= f.submit "登録", class: "btn-block btn-white"%>
+        <% end %>
+        <%= link_to "ログインはこちら",login_path,class: "text-white"%>
+      </div>
+    </div>
+  </div>
+</div>

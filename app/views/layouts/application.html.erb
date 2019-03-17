@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NFAClub</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <% flash.each do |key,value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent" style="background-color: #87cefa;">
+      <div class="container">
+　　  <!-- top画面 -->
+        <%= link_to root_path do %>
+          <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
+        <% end %>
+
+        <ul class="nav navbar-nav navbar-right">
+
+　　　 <!-- ログイン済みならば -->
+          <% if logged_in? %>
+            <!-- マイページに戻るリンク追加 -->
+            <li>
+              <%= link_to topics_path do %>
+                <%= image_tag "icons/my_img.png" %>
+              <% end %>
+            </li>
+            <!-- いいね一覧リンク -->
+            <li>
+              <%= link_to likes_index_path do %>
+                <%= image_tag "icons/heart.png" %>
+              <% end %>
+            </li>
+            <!-- 新規投稿頁リンク -->
+            <li>
+              <%= link_to new_topic_path do %>
+                <%= image_tag "icons/camera.png" %>
+              <% end %>
+            </li>
+            <!-- ログアウト頁へのリンク -->
+            <li>
+              <%= link_to logout_path,method: :delete do %>
+                <%= image_tag "icons/logout.png" %>
+              <% end %>
+            </li>
+          <!-- ログインしていなければ -->
+          <% else %>
+            <!-- 新規登録ページへ -->
+            <li>
+              <%= link_to new_user_path do %>
+                <%= image_tag "icons/register.png" %>
+              <% end %>
+            </li>
+            <!-- ログイン頁へ -->
+            <li>
+              <%= link_to login_path do %>
+                <%= image_tag "icons/login.png" %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+
+  </body>
+</html>

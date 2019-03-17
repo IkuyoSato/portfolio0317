@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  f_date: 2019-03-07
+  field: MyString
+  tackle: MyString
+  f_info: MyString
+  description: MyString
+  image: MyString
+
+two:
+  user_id: 1
+  f_date: 2019-03-07
+  field: MyString
+  tackle: MyString
+  f_info: MyString
+  description: MyString
+  image: MyString

@@ -1,0 +1,28 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <% like_count = 0 %>
+    <% @like_topics.each do |topic| %>
+          <% if like_count % 3 == 0 %>
+            <% if like_count > 0 %>
+
+              </div>
+            <% end %>
+
+          <div class="row">
+          <% end %>
+
+            <div class="col-md-4">
+              <div class="topic-index-single">
+                <h2 class="topic-author">
+                  <%= topic.user.name %>
+                </h2>
+                <%= image_tag topic.image.url %>
+                <p class="topic-text">
+                  <%= topic.description %>
+                </p>
+              </div>
+            </div>
+            <% like_count += 1 %>
+    <% end %>
+  </div>
+</div>
