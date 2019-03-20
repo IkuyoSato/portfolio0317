@@ -19,8 +19,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment=Comment.find(params[:id])
     @comment.destroy
-    # @comment[:topic_id]=comment_params[:topic_id]
-    # topic_id = comment_params[:topic_id]
     redirect_to topics_path, danger: "コメント投稿を削除しました"
   end
 

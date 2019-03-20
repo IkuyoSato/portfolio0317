@@ -1,3 +1,16 @@
+body {
+  background-color: #f0f8ff;
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+h1,h2,h3,h4,h5 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+
 h1,h2 {
   font-weight: 100;
 }
@@ -80,7 +93,9 @@ h1,h2 {
 
   .navbar-brand{
     padding: 0px;
-    margin-top: 15px;
+    margin-top: 10px;
+    height: auto;
+    width:auto;
   }
 
   .navbar-right {
@@ -128,30 +143,42 @@ h1,h2 {
 }
 
 
-// topic/-index頁
+// (topic/-index)_-(like-index)頁
 .topic-index-wrapper {
-  padding-top: 60px;
+  margin-top: 10px;
+  padding-top: 70px;
   background-color: #fafafa;
+  .row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
   .topic-index-single {
     background-color: #fff;
     padding-top: 10px;
     padding-bottom: 10px;
-    // margin-top: 10px;
+    // width: 390px;
+    // height: 300px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
     // display: inline-block;
-    .topic-link {
-      font-size: 15px;
+    .topic-image {
+      padding-left: 10px;
+      padding-right: 10px;
+      img {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
     }
-    .topic-author {
-      // padding-right: 10px;
-      // padding-left: 10px;
-    }
-    img {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      width: auto;
-      height: auto;
+    .topic_link {
+      h5 {
+        font-size: 10px;
+        margin-bottom: 0
+      }
     }
   }
 }
@@ -160,6 +187,17 @@ h1,h2 {
 .topic-show-wrapper {
   padding-top: 70px;
   background-color: #fafafa;
+  .comments-index {
+    padding-top: 70px;
+    .comment-input {
+      .topic-comment-icon {
+        width: 40px;
+        height: 40px;
+        margin-left: 20px;
+      }
+    }
+  }
+
   .show-index-single {
     background-color: #fff;
     padding-top: 20px;
@@ -167,40 +205,38 @@ h1,h2 {
     margin-top: 30px;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
-    .topic-author {
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-    img {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      width: 100%;
-      height: 100%;
-    }
-    .topic-index-icon {
-      width: 35px;
-      height: 30px;
-      margin-left: 20px;
-    }
-
-    .topic-text {
-      padding-right: 10px;
-      padding-left: 10px;
-      // display: inline;
-    }
-
-    .topic-f_date {
-      font-size: 20px;
-    }
-
-    .topic-field {
-      font-size: 20px;
-    }
-
-    .topic-description {
-      font-size: 15px;
-      width: 100%;
-      height: 100%;
-    }
+      .topic-author {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      .show-topic-image {
+        padding-left: 20px;
+        padding-right: 20px;
+        img {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          width: 680px;
+          height: 680px;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+      .icon-area {
+        margin-bottom: 20px;
+        .topic-index-icon {
+          width: 35px;
+          height: 30px;
+          margin-left: 20px;
+        }
+        .topic-text {
+          padding-right: 10px;
+          padding-left: 10px;
+          display: inline;
+        }
+      }
+      .topic-detail {
+        padding: 10px;
+      }
   }
 }

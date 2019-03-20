@@ -11,7 +11,7 @@
                 </div>
             <% end %>
 
-            <div class="row">
+            <div class="row row-eq-height">
         <% end %>
 
           <div class="col-md-3">
@@ -19,17 +19,17 @@
               <h2 class = "topic-author">
                 <%= topic.user.name %>
               </h2>
-              <%= image_tag topic.image.url %>
-
-              <h4 class = "topic-link">
+              <div class="topic-image">
+                  <%= image_tag topic.image.url %>
+              </div>
+              <h5 class = "topic-link">
                 <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>
-              </h4>
+              </h5>
             </div>
           </div>
 
         <% topic_count += 1 %>
     <!-- each文の閉じタグ　 -->
     <% end %>
-    </div>
   </div>
 </div>

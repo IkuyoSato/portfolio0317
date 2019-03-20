@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(id: params[:id])
     #コメント一覧を表示するための設定
     @comments=Comment.all
+
     #topic/showに反映させたい場合は記述
     @comment=Comment.new
   end
