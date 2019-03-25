@@ -20,7 +20,7 @@
                 <%= topic.user.name %>
               </h2>
               <div class="topic-image">
-                  <%= image_tag topic.image.url %>
+              <%= image_tag topic.image.url, :style => "background-image;" %>
               </div>
               <h5 class = "topic-link">
                 <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>

@@ -1,83 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NFAClub</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/normalize.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<head>
+<title>NFAClub</title>
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body>
-    <% flash.each do |key,value| %>
-      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-    <% end %>
+<body>
+<% flash.each do |key,value| %>
+<div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+<% end %>
+<div class="container">
+<nav class="navbar navbar-default navbar-expand navbar-fixed-top navbar-transparent" style="background-color: #b0c4de;">
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent" style="background-color: #b0c4de;">
-      <div class="container">
-　　  <!-- top画面 -->
-        <%= link_to root_path do %>
-          <span><%= image_tag "icons/mylogo.png", class: "navbar-brand" %></span>
-        <% end %>
+<!-- Collapse button -->
+<button class="navbar-toggler toggler-example visible-xs-inline" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+</button>
 
-        <ul class="nav navbar-nav navbar-right">
+<!-- Collapsible content -->
+<!-- 画面幅が所定のサイズ以下になったときに折りたたまれグルーピング -->
+<div class="collapse navbar-collapse" id="navbarSupportedContent1">
+<!-- top画面 -->
+<%= link_to root_path do %>
+<span><%= image_tag "icons/mylogo.png", class: "navbar-brand" %></span>
+<% end %>
 
-　　　 <!-- ログイン済みならば -->
-          <% if logged_in? %>
-            <!-- マイページに戻るリンク追加 -->
-            <li>
-              <%= link_to topics_path do %>
-                <%= image_tag "icons/my_img.png"  %><br>投稿一覧
-              <% end %>
-            </li>
-            <!-- いいね一覧リンク -->
-            <li>
-              <%= link_to likes_index_path do %>
-                <%= image_tag "icons/heart.png" %><br>いいね
-              <% end %>
-            </li>
-            <!-- 新規投稿頁リンク -->
-            <li>
-              <%= link_to new_topic_path do %>
-                <%= image_tag "icons/camera.png" %><br>新規投稿
-              <% end %>
-            </li>
-            <!-- ログアウト頁へのリンク -->
-            <li>
-              <%= link_to logout_path,method: :delete do %>
-                <%= image_tag "icons/logout.png" %><br>logout
-              <% end %>
-            </li>
-          <!-- ログインしていなければ -->
-          <% else %>
-            <!-- 新規登録ページへ -->
-            <li>
-              <%= link_to new_user_path do %>
-                <%= image_tag "icons/register.png" %><br>新規登録
-              <% end %>
-            </li>
-            <!-- ログイン頁へ -->
-            <li>
-              <%= link_to login_path do %>
-                <%= image_tag "icons/login.png" %><br>Login
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+<ul class="nav navbar-nav mr-auto navbar-right">
 
-    <%= yield %>
+<!-- ログイン済みならば -->
+<% if logged_in? %>
+<!-- マイページに戻るリンク追加 -->
+<li class = "nav-item active">
+<%= link_to topics_path, class: "nav-link" do %><span class="sr-only">(current)</span>
+  <%= image_tag "icons/my_img.png", class: "hidden-xs" %><br>投稿一覧
+<% end %>
+</li>
+<!-- いいね一覧リンク -->
+<li class = "nav-item">
+<%= link_to likes_index_path, class: "nav-link" do %>
+<%= image_tag "icons/heart.png", class: "hidden-xs" %><br>いいね
+<% end %>
+</li>
+<!-- 新規投稿頁リンク -->
+<li class = "nav-item">
+<%= link_to new_topic_path, class: "nav-link" do %>
+<%= image_tag "icons/camera.png", class: "hidden-xs" %><br>新規投稿
+<% end %>
+</li>
+<!-- ログアウト頁へのリンク -->
+<li class = "nav-item">
+<%= link_to logout_path, class: "nav-link", method: :delete do %>
+<%= image_tag "icons/logout.png", class: "hidden-xs" %><br>logout
+<% end %>
+</li>
+<!-- ログインしていなければ -->
+<% else %>
+<!-- 新規登録ページへ -->
+<li class = "nav-item">
+<%= link_to new_user_path, class: "nav-link" do %>
+<%= image_tag "icons/register.png", class: "hidden-xs" %><br>新規登録
+<% end %>
+</li>
+<!-- ログイン頁へ -->
+<li class = "nav-item">
+<%= link_to login_path, class: "nav-link" do %>
+<%= image_tag "icons/login.png", class: "hidden-xs" %><br>Login
+<% end %>
+</li>
+<% end %>
+</ul>
 
-    <script>
-      $(function(){
-        $(".alert").fadeOut(5000);
-      });
-    </script>
+</nav>
+</div>
 
-  </body>
+<%= yield %>
+
+<script>
+$(function(){
+$(".alert").fadeOut(5000);
+});
+</script>
+
+</body>
 </html>

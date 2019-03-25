@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :email, format: { with: /[A-Za-z0-9._+]+@[A-Za-z]+.[A-Za-z]/,
     message: "は~ @ ~ . ~の表現にしてください" }
 
+
     #パスワードの文字数制限
     validates :password, length: { in: 8..32, too_long: "は３２文字以内にしてください", too_short: "は８文字以上にしてください"}
 
