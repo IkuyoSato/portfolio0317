@@ -29,7 +29,7 @@ aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle
 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 <!-- top画面 -->
 <%= link_to root_path do %>
-<span><%= image_tag "icons/mylogo.png", class: "navbar-brand" %></span>
+<span><%= image_tag "icons/mylogo.png", class: "navbar-brand hidden-xs" %></span>
 <% end %>
 
 <ul class="nav navbar-nav mr-auto navbar-right">
@@ -37,7 +37,7 @@ aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle
 <!-- ログイン済みならば -->
 <% if logged_in? %>
 <!-- マイページに戻るリンク追加 -->
-<li class = "nav-item active">
+<li class = "nav-item">
 <%= link_to topics_path, class: "nav-link" do %><span class="sr-only">(current)</span>
   <%= image_tag "icons/my_img.png", class: "hidden-xs" %><br>投稿一覧
 <% end %>

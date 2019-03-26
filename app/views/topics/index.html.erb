@@ -1,35 +1,24 @@
 <div class="topic-index-wrapper">
   <div class="container">
     <!-- 投稿一覧は写真のみ表示し、詳細は,show頁で　 -->
-    <!-- # topic_count 0 からStart　 -->
-    <% topic_count =  0 %>
-    <% @topics.each do |topic| %>
-    　 <!-- topic_countが３の倍数ならば -->
-        <% if topic_count % 3 == 0 %>
-
-            <% if topic_count  > 0 %>
-                </div>
-            <% end %>
-
-            <div class="row" style="display: flex;">
-        <% end %>
-
-          <div class="col-md-4">
-            <div class="topic-index-single">
-              <h2 class = "topic-author">
-                <%= topic.user.name %>
-              </h2>
-              <div class="topic-image">
-              <%= image_tag topic.image.url, :style => "background-image;" %>
-              </div>
-              <h5 class = "topic-link">
-                <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>
-              </h5>
-            </div>
-          </div>
-
-        <% topic_count += 1 %>
-    <!-- each文の閉じタグ　 -->
-    <% end %>
+    <div class="row" style="display: flex;">
+      <div class="col-md-12">
+         <% @topics.each do |topic| %>
+         <div class="col-md-4">
+           <div class="topic-index-single">
+             <h2 class = "topic-author">
+               <%= topic.user.name %>
+             </h2>
+             <div class="topic-image">
+               <%= image_tag topic.image.url, :style => "background-image;" %>
+             </div>
+             <h5 class = "topic-link">
+               <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>
+             </h5>
+           </div>
+         </div>
+         <% end %>
+      </div>
+    </div>
   </div>
 </div>
