@@ -5,14 +5,18 @@
       <div class="col-md-12">
          <% @topics.each do |topic| %>
          <div class="col-md-4">
-           <div class="topic-index-single">
-             <h2 class = "topic-author">
+           <div class="topic-index-single h-100">
+             <h2 class = "topic-author" style="align-items:start;">
                <%= topic.user.name %>
              </h2>
-             <div class="topic-image">
-               <%= image_tag topic.image.url, :style => "background-image;" %>
+             <div class="topic-image" style="align-items:center;">
+               <% if topic.image.url.include?(".mp4") %>
+                 <%= video_tag  topic.image.url,   :style => "width:100%;", controls: true, autobuffer: true %>
+              <% else %>
+                 <%= image_tag topic.image.url %>
+               <% end %>
              </div>
-             <h5 class = "topic-link">
+             <h5 class = "topic-link" style="align-items:end;">
                <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>
              </h5>
            </div>

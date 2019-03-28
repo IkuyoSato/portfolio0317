@@ -15,12 +15,12 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   #ファイルサイズ制限
   def size_range
-    1..10.megabytes
+    1..1000.megabytes
   end
 
   #ファイルタイプ制限
   def extension_white_list
-    %w(ipg jpeg png)
+    %w(ipg jpeg png mp4 MOV wmv)
   end
 
 

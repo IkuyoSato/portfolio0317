@@ -10,7 +10,11 @@
                      <%= topic.user.name %>
                    </h2>
                    <div class="topic-image">
-                      <%= image_tag topic.image.url %>
+                     <% if topic.image.url.include?(".mp4") %>
+                       <%= video_tag  topic.image.url,   :style => "width:100%;", controls: true, autobuffer: true %>
+                    <% else %>
+                       <%= image_tag topic.image.url %>
+                     <% end %>
                    </div>
                    <h5 class = "topic-link">
                      <%= link_to("Fishing logへ", topic_path(id: topic.id) ) %>

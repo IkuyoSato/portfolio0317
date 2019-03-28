@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def index
-    @like_topics = current_user.like_topics
+    @like_topics = current_user.like_topics.all.order(created_at: :desc)
   end
 
   def create
