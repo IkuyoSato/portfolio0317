@@ -150,6 +150,7 @@ color: #0A38F5;
   padding-top: 70px;
   background-color: #fafafa;
   .topic-index-single {
+    height: 95%;
     background-color: #fff;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -236,4 +237,10 @@ color: #0A38F5;
         padding: 10px;
       }
   }
+}
+
+.equal {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
 }
