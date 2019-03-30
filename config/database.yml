@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: nsc_club_production
-  username: nsc_club
-  password: <%= ENV['NSC_CLUB_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: nsc_club
