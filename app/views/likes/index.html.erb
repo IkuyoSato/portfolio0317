@@ -1,12 +1,13 @@
 <div class="topic-index-wrapper">
    <div class="container">
    <!-- いいね一覧は写真のみ表示し、詳細は,show頁で　 -->
-   <div class="row" style="display: flex;">
-       <div class="col-md-12">
-          <% @like_topics.each do |topic| %>
+   <% @like_topics.each_with_index do |topic, i| %>
+   <% if i % 3 == 0 %>
+   <div class="row equal">
+   <% end %>
               <div class="col-md-4 ">
                  <div class="topic-index-single">
-                   <h2 class = "topic-author">
+                   <h2 class = "topic-author" style="align-items:start;">
                      <%= topic.user.name %>
                    </h2>
                    <div class="topic-image">
@@ -21,8 +22,9 @@
                    </h5>
                  </div>
               </div>
-          <% end %>
-       </div>
-    </div>
-   </div>
+  <% if i % 3 == 2 %>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
 </div>
